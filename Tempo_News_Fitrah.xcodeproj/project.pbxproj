@@ -23,7 +23,6 @@
 		5DA725142A8B3363003A2173 /* CustomListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA725132A8B3363003A2173 /* CustomListView.swift */; };
 		5DA725172A8B4DF3003A2173 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA725162A8B4DF3003A2173 /* News.swift */; };
 		5DA725192A8B5635003A2173 /* DetailItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA725182A8B5635003A2173 /* DetailItemView.swift */; };
-		5DD267442A8A2605007A4112 /* FeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD267432A8A2605007A4112 /* FeedType.swift */; };
 		5DD267492A8A4CD2007A4112 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD267482A8A4CD2007A4112 /* Constants.swift */; };
 		5DD2674E2A8A525C007A4112 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD2674D2A8A525C007A4112 /* WebView.swift */; };
 		5DD267502A8A528D007A4112 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD2674F2A8A528D007A4112 /* ActivityIndicatorView.swift */; };
@@ -50,7 +49,6 @@
 		5DA725132A8B3363003A2173 /* CustomListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomListView.swift; sourceTree = "<group>"; };
 		5DA725162A8B4DF3003A2173 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		5DA725182A8B5635003A2173 /* DetailItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailItemView.swift; sourceTree = "<group>"; };
-		5DD267432A8A2605007A4112 /* FeedType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedType.swift; sourceTree = "<group>"; };
 		5DD267482A8A4CD2007A4112 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5DD2674D2A8A525C007A4112 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		5DD2674F2A8A528D007A4112 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
@@ -131,7 +129,6 @@
 			isa = PBXGroup;
 			children = (
 				5D3173632A892954002C4B3F /* DataApi.swift */,
-				5DD267432A8A2605007A4112 /* FeedType.swift */,
 				5DA725162A8B4DF3003A2173 /* News.swift */,
 			);
 			path = Models;
@@ -270,7 +267,6 @@
 				5D3173482A8921B4002C4B3F /* Tempo_News_FitrahApp.swift in Sources */,
 				5DD267502A8A528D007A4112 /* ActivityIndicatorView.swift in Sources */,
 				5DA725142A8B3363003A2173 /* CustomListView.swift in Sources */,
-				5DD267442A8A2605007A4112 /* FeedType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

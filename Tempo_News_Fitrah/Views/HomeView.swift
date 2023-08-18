@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @State private var firstState = "🎃 All"
+    @State private var showAlert = false
     var navbarState = ["🎃 All", "🔝 Top", "🆕 New", "🎪 Show"]
     @State private var searchText: String = ""
     @StateObject private var newsVM = HomeViewModel()
@@ -59,6 +60,27 @@ struct HomeView: View {
                 .refreshable {
                     await newsVM.fetchNews()
                 }
+            }
+        }
+        .toolbar {
+            ToolbarItem {
+                HStack {
+                    Button {
+                    } label: {
+                        Image(systemName: "bookmark")
+                    }
+                    .alert(isPresented: $showAlert) {
+                        Alert(
+                            title: Text("Bookmark"),
+                            message: Text("Congratulation. Added to bookmark! 🎉🎉"),
+                            dismissButton: .default(Text("OK"))
+                        )
+                    }
+                    
+                    Image(systemName: "square.and.arrow.up")
+                }
+                .frame(width: 24, height: 24)
+                .padding(.trailing, 30)
             }
         }
         .task {
