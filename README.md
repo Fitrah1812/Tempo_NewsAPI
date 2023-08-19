@@ -8,9 +8,9 @@
 ### Preview application
 Support by: Mas Hidayat Abisena dan Mas Bayu Yasaputro
 
-![image](https://github.com/Fitrah1812/Tempo_NewsAPI/blob/main/Screenshot.jpeg)
+Link Simulation : [![Simulation][(https://github.com/Fitrah1812/Tempo_NewsAPI/blob/main/Screenshot.jpeg)](https://youtu.be/Xwklo_zdvdE)
 
-[![Watch the video][(https://github.com/Fitrah1812/Tempo_NewsAPI/blob/main/Screenshot.jpeg)](https://youtu.be/Xwklo_zdvdE)
+![image](https://github.com/Fitrah1812/Tempo_NewsAPI/blob/main/Screenshot.jpeg)
 
 
 
