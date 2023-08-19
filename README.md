@@ -8,7 +8,7 @@
 ### Preview application
 Support by: Mas Hidayat Abisena dan Mas Bayu Yasaputro
 
-Link Simulation : ![Simulasi](https://youtu.be/Xwklo_zdvdE)
+Link Simulation : [Simulasi](https://youtu.be/Xwklo_zdvdE)
 
 
 ![image](https://github.com/Fitrah1812/Tempo_NewsAPI/blob/main/Screenshot.jpeg)
