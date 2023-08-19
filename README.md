@@ -5,8 +5,11 @@
 
 
 ### Preview application
+Support by: Mas Hidayat Abisena dan Mas Bayu Yasaputro
 
-[![Watch the video](https://i.stack.imgur.com/Vp2cE.png)](https://youtu.be/Xwklo_zdvdE)
+![image](https://github.com/Fitrah1812/Tempo_NewsAPI/blob/main/Screenshot.jpeg)
+
+[![Watch the video]([https://i.stack.imgur.com/Vp2cE.png](https://github.com/Fitrah1812/Tempo_NewsAPI/blob/main/Screenshot.jpeg))](https://youtu.be/Xwklo_zdvdE)
 
 
 
