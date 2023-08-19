@@ -1,11 +1,10 @@
 # Tempo_NewsAPI
 
-##Tempo News API SwiftUI
-##Nama : Fitrah Arie Ramadhan
+## Tempo News API SwiftUI
+## Nama : Fitrah Arie Ramadhan
 
 
 ### Preview application
-
 
 [![Watch the video](https://i.stack.imgur.com/Vp2cE.png)](https://youtu.be/Xwklo_zdvdE)
 
