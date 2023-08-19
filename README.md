@@ -1,7 +1,8 @@
 # Tempo_NewsAPI
 
 ## Tempo News API SwiftUI
-## Nama : Fitrah Arie Ramadhan
+
+### Nama : Fitrah Arie Ramadhan
 
 
 ### Preview application
@@ -9,7 +10,7 @@ Support by: Mas Hidayat Abisena dan Mas Bayu Yasaputro
 
 ![image](https://github.com/Fitrah1812/Tempo_NewsAPI/blob/main/Screenshot.jpeg)
 
-[![Watch the video]([https://i.stack.imgur.com/Vp2cE.png](https://github.com/Fitrah1812/Tempo_NewsAPI/blob/main/Screenshot.jpeg))](https://youtu.be/Xwklo_zdvdE)
+[![Watch the video][(https://github.com/Fitrah1812/Tempo_NewsAPI/blob/main/Screenshot.jpeg)](https://youtu.be/Xwklo_zdvdE)
 
 
 
