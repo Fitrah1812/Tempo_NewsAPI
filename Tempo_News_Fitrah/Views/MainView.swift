@@ -8,8 +8,7 @@
 import SwiftUI
 import CoreData
 
-struct ContentView: View {
-    
+struct MainView: View {
 
     var body: some View {
         
@@ -45,8 +44,8 @@ private let itemFormatter: DateFormatter = {
     return formatter
 }()
 
-struct ContentView_Previews: PreviewProvider {
+struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        MainView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

@@ -21,7 +21,7 @@ struct HomeView: View {
                 ProgressView("Load News...")
             } else {
                 HStack {
-                    Picker("What is your favorite color?", selection: $firstState) {
+                    Picker("What is your favorite news?", selection: $firstState) {
                         ForEach(navbarState, id: \.self) {
                             Text($0)
                         }
@@ -30,7 +30,6 @@ struct HomeView: View {
                     Text(" ")                    
                 }
                 List(newsVM.news) { newsItem in
-                    
                     if(firstState == "🎃 All"){
                         NavigationLink(destination: DetailItemView(news: newsItem)) {
                             ListItemView(news: newsItem)
