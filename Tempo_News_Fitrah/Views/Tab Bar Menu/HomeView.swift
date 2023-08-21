@@ -48,7 +48,6 @@ struct HomeView: View {
                     NavigationLink(destination: DetailItemView(news: newsItem)) {
                             ListItemView(news: newsItem)
                         }
-                        
                 }
                 .refreshable {
                     if(firstState == "🌭 Food"){
@@ -62,30 +61,20 @@ struct HomeView: View {
                     }
                 }
                 .listStyle(.plain)
-                .navigationTitle("Tempo News")
-            }
-        }
-        .toolbar {
-            ToolbarItem {
-                HStack {
-                    Button {
-                    } label: {
-                        Image(systemName: "bookmark")
+                .navigationTitle("🆕 Tempo News 🆕")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar(content: {
+                    ToolbarItem(placement: .principal) {
+                        AsyncImage(url: URL(string: "https://www.tempo.co/desktop/images/logo-tempo-id.png")) { image in
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 150, height: 50)
+                        } placeholder: {
+                            Text("Zetizen News")
+                        }
                     }
-                    .alert(isPresented: $showAlert) {
-                        Alert(
-                            title: Text("Bookmark"),
-                            message: Text("Congratulation. Added to bookmark! 🎉🎉"),
-                            dismissButton: .default(Text("OK"))
-                        )
-                    }
-                    .refreshable {
-                        await newsVM.fetchNews()
-                    }
-                    Image(systemName: "square.and.arrow.up")
-                }
-                .frame(width: 24, height: 24)
-                .padding(.trailing, 30)
+                })
             }
         }
         .task {
