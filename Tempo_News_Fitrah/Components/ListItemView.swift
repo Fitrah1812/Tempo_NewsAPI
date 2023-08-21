@@ -45,7 +45,7 @@ struct ListItemView: View {
                 
                 HStack {
                     Text(news.categories.first!)
-                        .lineLimit(2)
+                        .lineLimit(1)
                         .font(.footnote)
                         .foregroundColor(.blue)
                     Text("-")
@@ -55,7 +55,7 @@ struct ListItemView: View {
                         .lineLimit(1)
                         .font(.footnote)
                         .foregroundColor(.gray)
-                    
+                            
                     Menu(
                         content: {
                             Button{
@@ -87,7 +87,6 @@ struct ListItemView: View {
                             Image(systemName: "ellipsis")
                                 .tint(.black)
                         }
-                            
                     )
                 }
             }

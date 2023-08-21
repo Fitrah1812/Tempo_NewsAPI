@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State private var firstState = "🎃 All"
+    @State private var firstState = "🎃 Food"
     @State private var showAlert = false
-    var navbarState = ["🎃 All", "🔝 Top", "🆕 New", "🎪 Show"]
+    var navbarState = ["🎃 Food", "🔝 Otomodif", "🆕 Science", "🎪 Techno"]
     @State private var searchText: String = ""
     @StateObject private var newsVM = HomeViewModel()
-
+    @State private var isFirstAppearance = true
+    
     
     var body: some View {
         NavigationStack {
@@ -21,44 +22,66 @@ struct HomeView: View {
                 ProgressView("Load News...")
             } else {
                 HStack {
-                    Picker("What is your favorite news?", selection: $firstState) {
+                    Picker("What is your favorite news?", selection: $firstState.onChange({ newTag in
+                        Task{
+                            if(newTag == "🎃 Food"){
+                                await newsVM.fetchNewsFood()
+                            }else if(newTag == "🔝 Otomodif") {
+                                await newsVM.fetchNewsOtomodif()
+                            }else if(newTag == "🆕 Science"){
+                                await newsVM.fetchNewsScience()
+                            }else if(newTag == "🎪 Techno"){
+                                await newsVM.fetchNews()
+                            }
+                        }
+                    })) {
                         ForEach(navbarState, id: \.self) {
                             Text($0)
+                            
                         }
                     }
                     .pickerStyle(.segmented)
-                    Text(" ")                    
+                    Text(" ")
+                    
                 }
                 List(newsVM.news) { newsItem in
-                    if(firstState == "🎃 All"){
+                    if(firstState == "🎃 Food"){
                         NavigationLink(destination: DetailItemView(news: newsItem)) {
                             ListItemView(news: newsItem)
                         }
-                    }else if(firstState == "🔝 Top"){
-                        if(newsItem.creator.count <= 7){
+                        
+                    }else if(firstState == "🔝 Otomodif"){
+                        
+                            NavigationLink(destination: DetailItemView(news: newsItem)) {
+                                ListItemView(news: newsItem)
+                            }
+    
+                    }else if(firstState == "🆕 Science"){
+                        
+                            NavigationLink(destination: DetailItemView(news: newsItem)) {
+                                ListItemView(news: newsItem)
+                            }
+                        
+                    }else if(firstState == "🎪 Techno"){
+                        
                             NavigationLink(destination: DetailItemView(news: newsItem)) {
                                 ListItemView(news: newsItem)
                             }
                         }
-                    }else if(firstState == "🆕 New"){
-                        if(newsItem.creator.count > 7 && newsItem.creator.count <= 15){
-                            NavigationLink(destination: DetailItemView(news: newsItem)) {
-                                ListItemView(news: newsItem)
-                            }
-                        }
-                    }else if(firstState == "🎪 Show"){
-                        if(newsItem.creator.count > 15){
-                            NavigationLink(destination: DetailItemView(news: newsItem)) {
-                                ListItemView(news: newsItem)
-                            }
-                        }
+                }
+                .refreshable {
+                    if(firstState == "🎃 Food"){
+                        await newsVM.fetchNewsFood()
+                    }else if(firstState == "🔝 Otomodif") {
+                        await newsVM.fetchNewsOtomodif()
+                    }else if(firstState == "🆕 Science"){
+                        await newsVM.fetchNewsScience()
+                    }else if(firstState == "🎪 Techno"){
+                        await newsVM.fetchNews()
                     }
                 }
                 .listStyle(.plain)
                 .navigationTitle("Tempo News")
-                .refreshable {
-                    await newsVM.fetchNews()
-                }
             }
         }
         .toolbar {
@@ -75,7 +98,9 @@ struct HomeView: View {
                             dismissButton: .default(Text("OK"))
                         )
                     }
-                    
+                    .refreshable {
+                        await newsVM.fetchNews()
+                    }
                     Image(systemName: "square.and.arrow.up")
                 }
                 .frame(width: 24, height: 24)
@@ -83,8 +108,31 @@ struct HomeView: View {
             }
         }
         .task {
-            await newsVM.fetchNews()
+            if(firstState == "🎃 Food"){
+                await newsVM.fetchNewsFood()
+            }else if(firstState == "🔝 Otomodif") {
+                await newsVM.fetchNewsOtomodif()
+            }else if(firstState == "🆕 Science"){
+                await newsVM.fetchNewsScience()
+            }else if(firstState == "🎪 Techno"){
+                await newsVM.fetchNews()
+            }
+            
         }
+    }
+}
+
+extension Binding where Value: Equatable {
+    func onChange(_ handler: @escaping (Value) -> Void) -> Self {
+        return Binding(
+            get: { self.wrappedValue },
+            set: { newValue in
+                if self.wrappedValue != newValue {
+                    self.wrappedValue = newValue
+                    handler(newValue)
+                }
+            }
+        )
     }
 }
 
