@@ -8,6 +8,14 @@
 import SwiftUI
 
 struct ListItemView: View {
+    
+    @State private var showAlert = false
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Item.isoDate, ascending: true)],
+        animation: .default)
+    
+    var items: FetchedResults<Item>
     let news: News
     
     var body: some View {
@@ -47,11 +55,63 @@ struct ListItemView: View {
                         .lineLimit(1)
                         .font(.footnote)
                         .foregroundColor(.gray)
+                    
+                    Menu(
+                        content: {
+                            Button{
+                                
+                            } label: {
+                                Image(systemName: "square.and.arrow.up")
+                                Text("Share")
+                            }
+                            .tag(0)
+                            
+                            Button{
+                                addItem()
+                                showAlert = true
+                            } label: {
+                                Image(systemName: "bookmark")
+                                Text("Bookmark")
+                            }
+                            .tag(1)
+                            .alert(isPresented: $showAlert) {
+                                Alert(
+                                    title: Text("Bookmark"),
+                                    message: Text("Congratulation. Added to bookmark! 🎉🎉"),
+                                    dismissButton: .default(Text("OK"))
+                                )
+                            }
+                            
+                        },
+                        label: {
+                            Image(systemName: "ellipsis")
+                                .tint(.black)
+                        }
+                            
+                    )
                 }
             }
         }
     }
-    
+    private func addItem() {
+        withAnimation {
+            let newItem = Item(context: viewContext)
+            newItem.isoDate = Date()
+//            newItem.id = UUID()
+            newItem.title = self.news.title
+            newItem.content = self.news.content
+            newItem.link = self.news.link
+            newItem.image = self.news.image
+            newItem.creator = self.news.creator
+            newItem.categories = self.news.categories.first
+            do {
+                try viewContext.save()
+            } catch {
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
+        }
+    }
     
 }
 
