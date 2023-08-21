@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct SearchView: View {
-    @State private var firstState = "🎃 Food"
+    @State private var firstState = "🌭 Food"
     @State private var showAlert = false
-    var navbarState = ["🎃 Food", "🔝 Otomodif", "🆕 Science", "🎪 Techno"]
+    var navbarState = ["🌭 Food", "🚌 Otomodif", "🧪 Science", "💻 Techno"]
     @StateObject private var newsVM = HomeViewModel()
     @State private var searchText = ""
     var body: some View {
@@ -21,13 +21,13 @@ struct SearchView: View {
                 HStack {
                     Picker("What is your favorite news?", selection: $firstState.onChange({ newTag in
                         Task{
-                            if(newTag == "🎃 Food"){
+                            if(newTag == "🌭 Food"){
                                 await newsVM.fetchNewsFood()
-                            }else if(newTag == "🔝 Otomodif") {
+                            }else if(newTag == "🚌 Otomodif") {
                                 await newsVM.fetchNewsOtomodif()
-                            }else if(newTag == "🆕 Science"){
+                            }else if(newTag == "🧪 Science"){
                                 await newsVM.fetchNewsScience()
-                            }else if(newTag == "🎪 Techno"){
+                            }else if(newTag == "💻 Techno"){
                                 await newsVM.fetchNews()
                             }
                         }
@@ -50,26 +50,26 @@ struct SearchView: View {
                 .listStyle(.plain)
                 .navigationTitle("Search Tempo News")
                 .refreshable {
-                    if(firstState == "🎃 Food"){
+                    if(firstState == "🌭 Food"){
                         await newsVM.fetchNewsFood()
-                    }else if(firstState == "🔝 Otomodif") {
+                    }else if(firstState == "🚌 Otomodif") {
                         await newsVM.fetchNewsOtomodif()
-                    }else if(firstState == "🆕 Science"){
+                    }else if(firstState == "🧪 Science"){
                         await newsVM.fetchNewsScience()
-                    }else if(firstState == "🎪 Techno"){
+                    }else if(firstState == "💻 Techno"){
                         await newsVM.fetchNews()
                     }
                 }
             }
         }
         .task {
-            if(firstState == "🎃 Food"){
+            if(firstState == "🌭 Food"){
                 await newsVM.fetchNewsFood()
-            }else if(firstState == "🔝 Otomodif") {
+            }else if(firstState == "🚌 Otomodif") {
                 await newsVM.fetchNewsOtomodif()
-            }else if(firstState == "🆕 Science"){
+            }else if(firstState == "🧪 Science"){
                 await newsVM.fetchNewsScience()
-            }else if(firstState == "🎪 Techno"){
+            }else if(firstState == "💻 Techno"){
                 await newsVM.fetchNews()
             }
         }
